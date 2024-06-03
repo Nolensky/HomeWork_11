@@ -4,8 +4,6 @@ public class Main {
 
         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
             System.out.println(year + " год является високосным");
-        } else if (year < 1584) {
-            System.out.println("Вы ввели не корректный год");
         } else {
             System.out.println(year + " год не является високосным");
         }
@@ -26,13 +24,25 @@ public class Main {
     }
 
     public static int calculateTimeDelivery(int range) {
+
         int timeOfDelivery = 1;
-        if (range >= 20 && range <= 60) {
+        if (range <= 20) {
+            return timeOfDelivery;
+        } else if (range <= 60) {
             return timeOfDelivery * 2;
-        } else if (range > 60 && range <= 100) {
+        } else if (range <= 100) {
             return timeOfDelivery * 3;
         } else {
-            return timeOfDelivery;
+            return timeOfDelivery - 2;
+        }
+    }
+
+    public static void printMessageDelivery(int timeDelivery) {
+        int days = calculateTimeDelivery(timeDelivery);
+        if (days > 0) {
+            System.out.println("Потребуется дней " + days);
+        } else {
+            System.out.println("Доставки нет");
         }
     }
 
@@ -60,10 +70,6 @@ public class Main {
     public static void task_3() {
         System.out.println("Задача 3");
         int deliveryDistance = 95;
-        if (deliveryDistance <= 0 || deliveryDistance > 100) {
-            System.out.println("Доставки нет!");
-            return;
-        }
-        System.out.println("Потребуется дней: " + calculateTimeDelivery(deliveryDistance));
+        printMessageDelivery(deliveryDistance);
     }
 }
