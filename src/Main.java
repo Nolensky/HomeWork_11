@@ -40,7 +40,7 @@ public class Main {
     public static void printMessageDelivery(int timeDelivery) {
         int days = calculateTimeDelivery(timeDelivery);
         if (days > 0) {
-            System.out.println("Потребуется дней " + days);
+            System.out.println("Потребуется дней: " + days);
         } else {
             System.out.println("Доставки нет");
         }
